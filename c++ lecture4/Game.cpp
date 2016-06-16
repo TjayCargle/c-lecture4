@@ -24,6 +24,10 @@ Console::SetCursorPosition(leftBorder -1, 0);                 \
 cout << "Score: " << score;                                   \
 Console::SetCursorPosition(rightBorder-8, 0);                 \
 cout << "Wave: " << waves;                                    \
+Console::SetCursorPosition((rightBorder/ 2) - 3, 0);          \
+cout << "Press Enter to Pause";                               \
+Console::SetCursorPosition((rightBorder/ 2)-3,bottomBorder+1);\
+cout << "Money Cha$ers";                               \
 Console::DrawBox(leftBorder - 1, topBorder - 1, rightBorder - 8, bottomBorder, true);
 
 
@@ -199,7 +203,8 @@ void Game::Update()
 	else
 	{
 		Console::ForegroundColor(Black);
-		Console::SetCursorPosition(Console::WindowWidth()/2, Console::WindowHeight()/2); cout << "Game Paused";
+		Console::SetCursorPosition((Console::WindowWidth()/2) - 4, Console::WindowHeight()/2); cout << "Game Paused";
+		Console::SetCursorPosition((Console::WindowWidth() / 2 )- 10, Console::WindowHeight() / 2 + 1); cout << "Press Enter to Continue";
 	}
 
 }
@@ -377,14 +382,14 @@ void Game::LoadScoresInBinary()
 void Game::ResetGame()
 {
 	Console::Lock(false);
-
+	Console::FlushKeys();
 	system("cls");
 
 	inAMenu = true;
 	Console::ForegroundColor(Black);
-	Console::SetCursorPosition(Console::WindowWidth() / 2, Console::WindowHeight() / 2); 
+	Console::SetCursorPosition((Console::WindowWidth() / 2) - 14, Console::WindowHeight() / 2); 
 	cout << "Would you like to play again?\n";
-	Console::SetCursorPosition(Console::WindowWidth() / 2,( Console::WindowHeight() / 2)+ 1);
+	Console::SetCursorPosition((Console::WindowWidth() / 2) - 9,( Console::WindowHeight() / 2)+ 1);
 	cout << "1: Yes \t 2: No";
 	Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 
@@ -397,7 +402,7 @@ void Game::ResetGame()
 			if (num == 1)
 			{
 				cin.clear();
-				cin.ignore(INT_MAX, '\n');
+				Console::FlushKeys();
 				system("cls");
 
 				inAMenu = false;
@@ -426,14 +431,14 @@ void Game::ResetGame()
 		{
 			cin.clear();
 			cin.ignore(INT_MAX, '\n');
-
+			
 			system("cls");
 			Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) - 1);
 			cout << "Uh, try again \n";
 		
-			Console::SetCursorPosition(Console::WindowWidth() / 2, Console::WindowHeight() / 2);
+			Console::SetCursorPosition((Console::WindowWidth() / 2) - 14, Console::WindowHeight() / 2);
 			cout << "Would you like to play again?\n";
-			Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 1);
+			Console::SetCursorPosition((Console::WindowWidth() / 2) - 9, (Console::WindowHeight() / 2) + 1);
 			cout << "1: Yes \t 2: No";
 			Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 		

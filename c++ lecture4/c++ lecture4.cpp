@@ -12,6 +12,12 @@ int main()
 	_CrtSetBreakAlloc(-1);
 
 	
+	Console::SetCursorPosition((Console::WindowWidth() / 2) - 12, Console::WindowHeight() / 2);
+	cout << "Press Enter to Play Game";
+	Console::SetCursorPosition((Console::WindowWidth() / 2) - 6, (Console::WindowHeight() / 2) - 2);
+	cout << "Money Cha$ers";
+	cin.get();
+
 	Console::EOLWrap(false);
 	Console::BackgroundColor(White);
 	Game* theGame = new Game();
@@ -50,9 +56,9 @@ int main()
 	Console::SetCursorPosition(Console::WindowWidth() / 2, Console::WindowHeight() / 2 - 1);
 	cout << "GameOver! \n";
 	Console::ForegroundColor(Black);
-	Console::SetCursorPosition(Console::WindowWidth() / 2, Console::WindowHeight() / 2);
+	Console::SetCursorPosition((Console::WindowWidth() / 2) - 15, Console::WindowHeight() / 2);
 	cout << "Would you like to see your scores?";
-	Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 1);
+	Console::SetCursorPosition((Console::WindowWidth() / 2) - 9, (Console::WindowHeight() / 2) + 1);
 	cout << "1: Yes \t 2: No";
 	Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 	int num = -69;
@@ -62,11 +68,13 @@ int main()
 		{
 			if (num == 1)
 			{
+				system("cls");
+				cout << "Your scores: \n";
 				theGame->DisplayScores();
 				
-				Console::SetCursorPosition((Console::WindowWidth() / 2) - 20, Console::WindowHeight() / 2);
+				Console::SetCursorPosition((Console::WindowWidth() / 2) - 25, Console::WindowHeight() / 2);
 				cout << "Would you like to SAVE your scores from this playthrough???";
-				Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 1);
+				Console::SetCursorPosition((Console::WindowWidth() / 2) - 9, (Console::WindowHeight() / 2) + 1);
 				cout << "1: Yes \t 2: No";
 				Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 				int num2 = -69;
@@ -84,7 +92,7 @@ int main()
 									theGame->DisplayScores();
 									Console::SetCursorPosition((Console::WindowWidth() / 2 )- 15, Console::WindowHeight() / 2);
 									cout << "How many scores would you like to save?";
-									Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 1);
+									Console::SetCursorPosition((Console::WindowWidth() / 2) - 15, (Console::WindowHeight() / 2) + 1);
 									cout << "Cannot exceed amount of scores";
 									Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 									if (cin >> num3 && num3 >0 && num3 <(maxAmount +1))
@@ -101,10 +109,17 @@ int main()
 									}
 									else
 									{
+										system("cls");
 										Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) - 1);
 										cout << "Uh, try again \n";
 										cin.clear();
 										cin.ignore(INT_MAX, '\n');
+										theGame->DisplayScores();
+										Console::SetCursorPosition((Console::WindowWidth() / 2) - 15, Console::WindowHeight() / 2);
+										cout << "How many scores would you like to save?";
+										Console::SetCursorPosition((Console::WindowWidth() / 2) - 15, (Console::WindowHeight() / 2) + 1);
+										cout << "Cannot exceed amount of scores";
+										Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 										Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 									}
 
@@ -120,10 +135,19 @@ int main()
 						}
 						else
 						{
+							system("cls");
 							Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) - 1);
 							cout << "Uh, try again \n";
 							cin.clear();
 							cin.ignore(INT_MAX, '\n');
+							cout << "Your scores: \n";
+							theGame->DisplayScores();
+
+							Console::SetCursorPosition((Console::WindowWidth() / 2) - 25, Console::WindowHeight() / 2);
+							cout << "Would you like to SAVE your scores from this playthrough???";
+							Console::SetCursorPosition((Console::WindowWidth() / 2) - 9, (Console::WindowHeight() / 2) + 1);
+							cout << "1: Yes \t 2: No";
+							Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 							Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 						}
 					
@@ -134,9 +158,10 @@ int main()
 			}
 			else
 			{
-				Console::SetCursorPosition((Console::WindowWidth() / 2) - 25, Console::WindowHeight() / 2);
+				system("cls");
+				Console::SetCursorPosition((Console::WindowWidth() / 2) - 30, Console::WindowHeight() / 2);
 				cout << "Would you like to LOAD your scores from  a last playthrough???";
-				Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 1);
+				Console::SetCursorPosition((Console::WindowWidth() / 2) - 9, (Console::WindowHeight() / 2) + 1);
 				cout << "1: Yes \t 2: No";
 				Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 				int num4 = -69;
@@ -166,9 +191,17 @@ int main()
 					}
 					else
 					{
+						system("cls");
+						Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) - 1);
 						cout << "Uh, try again \n";
 						cin.clear();
 						cin.ignore(INT_MAX, '\n');
+						Console::SetCursorPosition((Console::WindowWidth() / 2) - 30, Console::WindowHeight() / 2);
+						cout << "Would you like to LOAD your scores from  a last playthrough???";
+						Console::SetCursorPosition((Console::WindowWidth() / 2) - 9, (Console::WindowHeight() / 2) + 1);
+						cout << "1: Yes \t 2: No";
+						Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
+						Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 					}
 
 				} while (true);
@@ -178,10 +211,20 @@ int main()
 		}
 		else
 		{
-			Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) - 1);
+			system("cls");
+			Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) - 2);
 			cout << "Uh, try again \n";
 			cin.clear();
 			cin.ignore(INT_MAX, '\n');
+			Console::SetCursorPosition(Console::WindowWidth() / 2, Console::WindowHeight() / 2 - 1);
+			Console::ForegroundColor(Red);
+			cout << "GameOver! \n";
+			Console::ForegroundColor(Black);
+			Console::SetCursorPosition((Console::WindowWidth() / 2) - 15, Console::WindowHeight() / 2);
+			cout << "Would you like to see your scores?";
+			Console::SetCursorPosition((Console::WindowWidth() / 2) - 9, (Console::WindowHeight() / 2) + 1);
+			cout << "1: Yes \t 2: No";
+			Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 			Console::SetCursorPosition(Console::WindowWidth() / 2, (Console::WindowHeight() / 2) + 2);
 		}
 
